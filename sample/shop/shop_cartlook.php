@@ -57,7 +57,7 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 foreach($cart as $key=>$val)
 {
-	$sql='SELECT code,name,price,gazou FROM mst_product WHERE code=?';
+	$sql='SELECT code,name,price,gazou,maker,color,distance FROM mst_product WHERE code=?';
 	$stmt=$dbh->prepare($sql);
 	$data[0]=$val;
 	$stmt->execute($data);
@@ -66,6 +66,9 @@ foreach($cart as $key=>$val)
 
 	$pro_name[]=$rec['name'];
 	$pro_price[]=$rec['price'];
+	$pro_maker[]=$rec['maker'];
+	$pro_color[]=$rec['color'];
+	$pro_distance[]=$rec['distance'];
 	if($rec['gazou']=='')
 	{
 		$pro_gazou[]='';
@@ -93,8 +96,9 @@ catch(Exception $e)
 <td>商品</td>
 <td>商品画像</td>
 <td>価格</td>
-<td>数量</td>
-<td>小計</td>
+<td>メーカー</td>
+<td>走行距離</td>
+<td>色</td>
 <td>削除</td>
 </tr>
 <form method="post" action="kazu_change.php">
@@ -105,8 +109,9 @@ catch(Exception $e)
 	<td><?php print $pro_name[$i]; ?></td>
 	<td><?php print $pro_gazou[$i]; ?></td>
 	<td><?php print $pro_price[$i]; ?>円</td>
-	<td><input type="text" name="kazu<?php print $i; ?>" value="<?php print $kazu[$i]; ?>"></td>
-	<td><?php print $pro_price[$i]*$kazu[$i]; ?>円</td>
+	<td><?php print $pro_maker[$i]; ?>製</td>
+	<td><?php print $pro_color[$i]; ?>色</td>
+	<td><?php print $pro_distance[$i]; ?>km</td>
 	<td><input type="checkbox" name="sakujo<?php print $i; ?>"></td>
 </tr>
 <?php
