@@ -30,6 +30,12 @@ else
 <input type="text" name="name" style="width:200px"><br />
 価格を入力してください。<br />
 <input type="text" name="price" style="width:50px"><br />
+メーカーを入力してください。<br />
+<input type="text" name="maker" style="width:200px"><br />
+色を入力してください。<br />
+<input type="text" name="color" style="width:50px"><br />
+距離を入力してください。<br />
+<input type="text" name="distance" style="width:50px"><br />
 画像を選んでください。<br />
 <input type="file" name="gazou" style="width:400px"><br />
 <br />
