@@ -27,10 +27,18 @@ else
 
 try
 {
+   
 
 $year=$_POST['year'];
 $month=$_POST['month'];
 $day=$_POST['day'];
+
+ if(($month>0)&&($day==0)){
+        
+}
+else if(($month>0)&&($day>0)){
+    
+}
 
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -60,12 +68,15 @@ WHERE
 	AND dat_sales_product.code_product=mst_product.code
 	AND substr(dat_sales.date,1,4)=?
 	AND substr(dat_sales.date,6,2)=?
-	AND substr(dat_sales.date,9,2)=?
+
 ';
+
+	//AND substr(dat_sales.date,9,2)=?
+                
 $stmt=$dbh->prepare($sql);
 $data[]=$year;
 $data[]=$month;
-$data[]=$day;
+//$data[]=$day;
 $stmt->execute($data);
 
 $dbh=null;
@@ -109,8 +120,13 @@ while(true)
         $uriage=$uriage+$rec['quantity']*$rec['price'];
 }
 
-print nl2br($csv);
-print nl2br($uriage);
+//print nl2br($csv);
+//print nl2br($uriage);
+
+print $year.'年'.$month.'月'.'の売上 ';
+print '<br />';
+print $uriage.'円';
+
 }
 catch (Exception $e)
 {

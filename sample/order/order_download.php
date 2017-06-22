@@ -27,7 +27,8 @@ else
 require_once('../common/common.php');
 ?>
 
-ダウンロードしたい注文日を選んでください。<br />
+売上を確認したい範囲を選択してください。<br />    
+<!--ダウンロードしたい注文日を選んでください。<br />-->
 <form method="post" action="order_download_done.php">
 <?php pulldown_year(); ?>
 年
