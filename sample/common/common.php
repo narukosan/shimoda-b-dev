@@ -48,7 +48,7 @@ function pulldown_year()
 function pulldown_month()
 {
 	print '<select name="month">';
-        print '<option value="--">--</option>';
+        print '<option value="00">00</option>';
 	print '<option value="01">01</option>';
 	print '<option value="02">02</option>';
 	print '<option value="03">03</option>';
@@ -67,7 +67,7 @@ function pulldown_month()
 function pulldown_day()
 {
 	print '<select name="day">';
-        print '<option value="--">--</option>';
+        print '<option value="00">00</option>';
 	print '<option value="01">01</option>';
 	print '<option value="02">02</option>';
 	print '<option value="03">03</option>';
