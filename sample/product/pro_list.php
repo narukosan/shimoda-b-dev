@@ -34,7 +34,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,name,price,maker,color,distance FROM mst_product WHERE 1';
+$sql='SELECT code,name,price,maker,color,distance,stock FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -56,6 +56,7 @@ while(true)
         print $rec['maker'].'製';
         print $rec['color'].'色';
         print $rec['distance'].'ｋｍ';
+        print $rec['stock'].'台';
         
 	print '<br />';
 }

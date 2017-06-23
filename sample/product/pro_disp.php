@@ -36,7 +36,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT name,price,gazou FROM mst_product WHERE code=?';
+$sql='SELECT name,price,maker,color,distance,stock,gazou FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
@@ -44,6 +44,10 @@ $stmt->execute($data);
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 $pro_name=$rec['name'];
 $pro_price=$rec['price'];
+$pro_maker=$rec['maker'];
+$pro_color=$rec['color'];
+$pro_distance=$rec['distance'];
+$pro_stock=$rec['stock'];
 $pro_gazou_name=$rec['gazou'];
 
 $dbh=null;

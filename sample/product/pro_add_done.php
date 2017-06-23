@@ -44,7 +44,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='INSERT INTO mst_product(name,price,maker,color,distance,gazou) VALUES (?,?,?,?,?,?)';
+$sql='INSERT INTO mst_product(name,price,maker,color,distance,gazou,stock) VALUES (?,?,?,?,?,?,?)';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;
 $data[]=$pro_price;
@@ -52,6 +52,7 @@ $data[]=$pro_maker;
 $data[]=$pro_color;
 $data[]=$pro_distance;
 $data[]=$pro_gazou_name;
+$data[]=1;
 $stmt->execute($data);
 
 $dbh=null;
