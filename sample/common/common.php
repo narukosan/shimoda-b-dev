@@ -102,7 +102,7 @@ function pulldown_day()
 function pulldown_type()
 {
 	print '<select name="type">';
-	print '<option value="軽自動車">01</option>';
+	print '<option value="軽自動車">軽自動車</option>';
 	print '<option value="コンパクトカー">02</option>';
 	print '<option value="ミニバン・ワンボックス">03</option>';
 	print '<option value="ハイブリッド・EV車">04</option>';
