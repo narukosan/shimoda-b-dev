@@ -50,11 +50,11 @@ require_once('../common/common.php');
 キーワードを選んでください。<br />
 <from method="post"action="">
 種類
-<?php pulldoun_type(); ?>
+<?php pulldown_type(); ?>
 サイズ
-<?php pulldoun_size(); ?>
+<?php pulldown_size(); ?>
 走行距離
-<?php pulldoun_color(); ?>
+<?php pulldown_color(); ?>
 <br />
 <input type="submit" value="value="絞り込み">
 </from>
@@ -103,8 +103,8 @@ while(true)
         else if(($type==='')&&(strpos($rec['name'],$keyword)!==false)){
             $disp=1;
         }
-        else if(($keyword==='')&&((strpos($type2,$type)!==false)&&(strpos($size2,&size)!==false)&&(strpos($color2,$color)!==false))){
-                $disp=;1
+        else if(($keyword==='')&&((strpos($type2,$type)!==false)&&(strpos($size2,$size)!==false)&&(strpos($color2,$color)!==false))){
+            $disp=1;
         }
             
     if($disp===1){

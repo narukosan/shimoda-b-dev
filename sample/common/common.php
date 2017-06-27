@@ -99,5 +99,23 @@ function pulldown_day()
 	print '<option value="31">31</option>';
 	print '</select>';
 }
+function pulldown_type()
+{
+	print '<select name="type">';
+	print '<option value="軽自動車">01</option>';
+	print '<option value="コンパクトカー">02</option>';
+	print '<option value="ミニバン・ワンボックス">03</option>';
+	print '<option value="ハイブリッド・EV車">04</option>';
+	print '<option value="セダン">05</option>';
+	print '<option value="クーベ">06</option>';
+	print '<option value="ステーションワゴン">07</option>';
+	print '<option value="SUW・クロカン">08</option>';
+	print '<option value="オープンカー">09</option>';
+	print '<option value="商用車">10</option>';
+	print '<option value="キャンピングカー">11</option>';
+	print '<option value="軽トラック・軽バン">12</option>';
+        print '<option value="福祉車両">12</option>';
+	print '</select>';
+}
 
 ?>
