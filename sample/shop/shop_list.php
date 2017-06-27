@@ -44,7 +44,6 @@ $dbh=null;
 
 print '商品一覧<br /><br />';
 
-<?php
 require_once('../common/common.php');
 ?>
     
@@ -88,7 +87,7 @@ if($type!==''){
 while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
-            $type2=$rec{'type'];
+            $type2=$rec['type'];
             $size2=$rec['size'];
             $coler2=$rec['coler'];
 	if($rec==false)
@@ -98,15 +97,15 @@ while(true)
         
             $disp=0;
         //キーワードが空、または、キーワードが含まれるとき表示
-        if(($keyword===''))&&($type==='')){
+        if(($keyword==='')&&($type==='')){
             $disp=1;
         }
         else if(($type==='')&&(strpos($rec['name'],$keyword)!==false)){
             $disp=1;
         }
-        else if(($keyword==='')&&((strpos($type2,$type)!==false)&&(strpos($size2,&size)!
+        else if(($keyword==='')&&((strpos($type2,$type)!==false)&&(strpos($size2,&size)!==false)&&(strpos($color2,$color)!==false))){
                 $disp=;1
-            }
+        }
             
     if($disp===1){
 	print '<a href="shop_product.php?procode='.$rec['code'].'">';
@@ -116,6 +115,7 @@ while(true)
 	print '<br />';
     }
 }
+    
 
 print '<br />';
 print '<a href="shop_cartlook.php">カートを見る</a><br />';
