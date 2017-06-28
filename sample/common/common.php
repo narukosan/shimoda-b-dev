@@ -103,18 +103,18 @@ function pulldown_type()
 {
 	print '<select name="type">';
 	print '<option value="軽自動車">軽自動車</option>';
-	print '<option value="コンパクトカー">02</option>';
-	print '<option value="ミニバン・ワンボックス">03</option>';
-	print '<option value="ハイブリッド・EV車">04</option>';
-	print '<option value="セダン">05</option>';
-	print '<option value="クーベ">06</option>';
-	print '<option value="ステーションワゴン">07</option>';
-	print '<option value="SUW・クロカン">08</option>';
-	print '<option value="オープンカー">09</option>';
-	print '<option value="商用車">10</option>';
-	print '<option value="キャンピングカー">11</option>';
-	print '<option value="軽トラック・軽バン">12</option>';
-        print '<option value="福祉車両">12</option>';
+	print '<option value="コンパクトカー">コンパクトカー</option>';
+	print '<option value="ミニバン・ワンボックス">ミニバン・ワンボックス</option>';
+	print '<option value="ハイブリッド・EV車">ハイブリッド・EV車</option>';
+	print '<option value="セダン">セダン</option>';
+	print '<option value="クーベ">クーベ</option>';
+	print '<option value="ステーションワゴン">ステーションワゴン</option>';
+	print '<option value="SUW・クロカン">SUW・クロカン</option>';
+	print '<option value="オープンカー">オープンカー</option>';
+	print '<option value="商用車">商用車</option>';
+	print '<option value="キャンピングカー">キャンピングカー</option>';
+	print '<option value="軽トラック・軽バン">軽トラック・軽バン</option>';
+        print '<option value="福祉車両">福祉車両</option>';
 	print '</select>';
 }
 
