@@ -126,9 +126,18 @@ function pulldown_price()
 	print '<option value="～100万円">～100万円</option>';
 	print '<option value="～200万円">～200万円</option>';
 	print '<option value="～300万円">～300万円</option>';
-	print '<option value="～500万円以上">～500万円以上</option>';
-	print '<opti
+	print '<option value="～500万円以上">～500万円</option>';
 	print '</select>';
 }
-
+function pulldown_distance()
+{
+	print '<select name="distance">';
+	print '<option value="1万km以下">1万km以下</option>';
+	print '<option value="1～3万km">1～3万km</option>';
+	print '<option value="3～5万km">3～5万km</option>';
+	print '<option value="5～10万km">5～10万km</option>';
+	print '<option value="10～15万km">10～15万km</option>';
+	print '<option value="15万km以上">15万km以上</option>';
+	print '</select>';
+}
 ?>
