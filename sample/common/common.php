@@ -99,6 +99,7 @@ function pulldown_day()
 	print '<option value="31">31</option>';
 	print '</select>';
 }
+
 function pulldown_type()
 {
 	print '<select name="type">';
@@ -115,6 +116,18 @@ function pulldown_type()
 	print '<option value="キャンピングカー">キャンピングカー</option>';
 	print '<option value="軽トラック・軽バン">軽トラック・軽バン</option>';
         print '<option value="福祉車両">福祉車両</option>';
+	print '</select>';
+}
+function pulldown_price()
+{
+	print '<select name="price">';
+	print '<option value="～30万円">～30万円</option>';
+	print '<option value="～50万円">～50万円</option>';
+	print '<option value="～100万円">～100万円</option>';
+	print '<option value="～200万円">～200万円</option>';
+	print '<option value="～300万円">～300万円</option>';
+	print '<option value="～500万円以上">～500万円以上</option>';
+	print '<opti
 	print '</select>';
 }
 

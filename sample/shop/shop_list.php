@@ -51,10 +51,10 @@ require_once('../common/common.php');
 <from method="post"action="">
 種類
 <?php pulldown_type(); ?>
-サイズ
-<?php pulldown_size(); ?>
+価格
+<?php pulldown_price(); ?>
 走行距離
-<?php pulldown_color(); ?>
+<?php pulldown_distance(); ?>
 <br />
 <input type="submit" value="value="絞り込み">
 </from>
@@ -72,15 +72,15 @@ if($keyword!==''){
 }
 //固定キーワード
 $type='';
-$size='';
-$color='';
+$price='';
+$distance='';
 if(isset($POST['type'])){
    $type=$_POST['type'];
-   $size=$_POST['size'];
-   $color=$_POST['coler'];
+   $price=$_POST['price'];
+   $distance=$_POST['distance'];
 }
 if($type!==''){
-    print $type.' '.$size.','.$coler.'に一致する商品';
+    print $type.' '.$price.','.$distance.'に一致する商品';
     print '<br />';
 }
 
@@ -88,8 +88,8 @@ while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
             $type2=$rec['type'];
-            $size2=$rec['size'];
-            $coler2=$rec['coler'];
+            $price2=$rec['price'];
+            $distance2=$rec['distance'];
 	if($rec==false)
 	{
 		break;
@@ -103,7 +103,7 @@ while(true)
         else if(($type==='')&&(strpos($rec['name'],$keyword)!==false)){
             $disp=1;
         }
-        else if(($keyword==='')&&((strpos($type2,$type)!==false)&&(strpos($size2,$size)!==false)&&(strpos($color2,$color)!==false))){
+        else if(($keyword==='')&&((strpos($type2,$type)!==false)&&(strpos($price2,$price)!==false)&&(strpos($distance2,$distance)!==false))){
             $disp=1;
         }
             
