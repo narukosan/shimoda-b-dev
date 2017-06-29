@@ -74,7 +74,7 @@ if($keyword!==''){
 $type='';
 $price='';
 $distance='';
-if(isset($POST['type'])){
+if(isset($_POST['type'])){
    $type=$_POST['type'];
    $price=$_POST['price'];
    $distance=$_POST['distance'];
