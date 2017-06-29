@@ -46,15 +46,15 @@ print '商品一覧<br /><br />';
 
 require_once('../common/common.php');
 ?>
-<from method="post"action="">
+<form method="post" action="">
 キーワード<br />
 <input type="text" name="keyword"><br />
 <input type="submit" value="検索">
-</from> 
+</form> 
 <br />
 
 キーワードを選んでください。<br />
-<from method="post"action="">
+<form method="post"action="">
 種類
 <?php pulldown_type(); ?>
 価格
@@ -63,7 +63,7 @@ require_once('../common/common.php');
 <?php pulldown_distance(); ?>
 <br />
 <input type="submit" value="絞り込み">
-</from>
+</form>
 <br />
 
 <?php
@@ -71,7 +71,7 @@ require_once('../common/common.php');
 //フリーキーワード
 $keyword='';
 if(isset($_POST['keyword'])){
-    $keysord=$_POST['keyword'];
+    $keyword=$_POST['keyword'];
 }
 if($keyword!==''){
     print $keyword.'が含まれる';
