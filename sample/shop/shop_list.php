@@ -36,7 +36,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,name,price FROM mst_product WHERE 1';
+$sql='SELECT code,name,price,type,price2,distance FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -56,7 +56,7 @@ require_once('../common/common.php');
 走行距離
 <?php pulldown_distance(); ?>
 <br />
-<input type="submit" value="value="絞り込み">
+<input type="submit" value="絞り込み">
 </from>
 
 <?php
@@ -88,7 +88,7 @@ while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
             $type2=$rec['type'];
-            $price2=$rec['price'];
+            $price2=$rec['price2'];
             $distance2=$rec['distance'];
 	if($rec==false)
 	{

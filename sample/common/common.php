@@ -126,7 +126,8 @@ function pulldown_price()
 	print '<option value="～100万円">～100万円</option>';
 	print '<option value="～200万円">～200万円</option>';
 	print '<option value="～300万円">～300万円</option>';
-	print '<option value="～500万円以上">～500万円以上</option>';
+	print '<option value="～500万円">～500万円</option>';
+        print '<option value="500万円以上">500万円以上</option>';
 	print '</select>';
 }
 function pulldown_distance()
