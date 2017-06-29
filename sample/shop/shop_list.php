@@ -46,7 +46,13 @@ print '商品一覧<br /><br />';
 
 require_once('../common/common.php');
 ?>
-    
+<from method="post"action="">
+キーワード<br />
+<input type="text" name="keyword"><br />
+<input type="submit" value="検索">
+</from> 
+<br />
+
 キーワードを選んでください。<br />
 <from method="post"action="">
 種類
@@ -58,6 +64,7 @@ require_once('../common/common.php');
 <br />
 <input type="submit" value="絞り込み">
 </from>
+<br />
 
 <?php
 
