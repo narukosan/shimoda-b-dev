@@ -30,13 +30,24 @@ try
 
 $pro_code=$_GET['procode'];
 
+require_once('../common/common.php');
+if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
 $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+}
+else{
+$dbServer = '127.0.0.1';
+$dbUser = $_SERVER['MYSQL_USER'];
+$dbPass = $_SERVER['MYSQL_PASSWORD'];
+$dbName = $_SERVER['MYSQL_DB'];
+$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
+$dbh = new PDO($dsn, $dbUser, $dbPass);
+}
 
-$sql='SELECT name,price,gazou FROM mst_product WHERE code=?';
+$sql='SELECT name,price,maker,color,distance,stock,gazou FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
@@ -44,6 +55,10 @@ $stmt->execute($data);
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 $pro_name=$rec['name'];
 $pro_price=$rec['price'];
+$pro_maker=$rec['maker'];
+$pro_color=$rec['color'];
+$pro_distance=$rec['distance'];
+$pro_stock=$rec['stock'];
 $pro_gazou_name=$rec['gazou'];
 
 $dbh=null;

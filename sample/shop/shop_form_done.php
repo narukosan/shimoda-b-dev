@@ -138,6 +138,14 @@ for($i=0;$i<$max;$i++)
 	$data[]=$kakaku[$i];
 	$data[]=$kazu[$i];
 	$stmt->execute($data);
+        
+        $sql='UPDATE mst_product SET stock=? WHERE code=?';
+        $stmt=$dbh->prepare($sql);
+        $data=array();
+        $data[]=0;
+        $data[]=$cart[$i];
+        $stmt->execute($data);
+        
 }
 
 //$sql='UNLOCK TABLES';

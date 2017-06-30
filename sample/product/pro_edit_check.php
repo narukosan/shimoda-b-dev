@@ -31,6 +31,10 @@ $post=sanitize($_POST);
 $pro_code=$post['code'];
 $pro_name=$post['name'];
 $pro_price=$post['price'];
+$pro_maker=$post['maker'];
+$pro_color=$post['color'];
+$pro_distance=$post['distance'];
+$pro_stock=$post['stock'];
 $pro_gazou_name_old=$post['gazou_name_old'];
 $pro_gazou=$_FILES['gazou'];
 
@@ -70,6 +74,22 @@ if($pro_gazou['size']>0)
 	}
 }
 
+	print 'メーカー:';
+	print $pro_maker;
+	print '製<br />';
+        
+        print '色:';
+	print $pro_color;
+	print '色<br />';
+        
+        print '距離:';
+	print $pro_distance;
+	print 'ｋｍ<br />';
+        
+        print '在庫:';
+	print $pro_stock;
+	print '台<br />';
+
 if($pro_name=='' || preg_match('/^[0-9]+$/',$pro_price)==0 || $pro_gazou['size']>1000000)
 {
 	print '<form>';
@@ -83,6 +103,10 @@ else
 	print '<input type="hidden" name="code" value="'.$pro_code.'">';
 	print '<input type="hidden" name="name" value="'.$pro_name.'">';
 	print '<input type="hidden" name="price" value="'.$pro_price.'">';
+        print '<input type="hidden" name="maker" value="'.$pro_maker.'">';
+	print '<input type="hidden" name="color" value="'.$pro_color.'">';
+        print '<input type="hidden" name="distance" value="'.$pro_distance.'">';
+	print '<input type="hidden" name="stock" value="'.$pro_stock.'">';
 	print '<input type="hidden" name="gazou_name_old" value="'.$pro_gazou_name_old.'">';
 	print '<input type="hidden" name="gazou_name" value="'.$pro_gazou['name'].'">';
 	print '<br />';
