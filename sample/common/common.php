@@ -1,5 +1,10 @@
 <?php
 
+//DEBUG処理の切り替え     本番運用時にはFALSEに変更すること
+define('DEBUG', TRUE);  //デバッグ時
+//define('DEBUG', FALSE); //本番運用時
+
+
 function gengo($seireki)
 {
 	if(1868<=$seireki && $seireki<=1911)
@@ -100,4 +105,38 @@ function pulldown_day()
 	print '</select>';
 }
 
+function pulldown_type()
+{
+	print '<select name="type">';
+	print '<option value="トヨタ">トヨタ</option>';
+	print '<option value="日産">コ日産</option>';
+	print '<option value="ホンダ">ミニバン・ワンボックス</option>';
+	print '<option value="三菱">ハイブリッド・EV車</option>';
+	print '<option value="マツダ">セダン</option>';
+	print '<option value="スバル">クーベ</option>';
+	print '</select>';
+}
+function pulldown_price()
+{
+	print '<select name="price">';
+	print '<option value="～30万円">～30万円</option>';
+	print '<option value="～50万円">～50万円</option>';
+	print '<option value="～100万円">～100万円</option>';
+	print '<option value="～200万円">～200万円</option>';
+	print '<option value="～300万円">～300万円</option>';
+	print '<option value="～500万円">～500万円</option>';
+        print '<option value="500万円以上">500万円以上</option>';
+	print '</select>';
+}
+function pulldown_distance()
+{
+	print '<select name="distance">';
+	print '<option value="1万km以下">1万km以下</option>';
+	print '<option value="1～3万km">1～3万km</option>';
+	print '<option value="3～5万km">3～5万km</option>';
+	print '<option value="5～10万km">5～10万km</option>';
+	print '<option value="10～15万km">10～15万km</option>';
+	print '<option value="15万km以上">15万km以上</option>';
+	print '</select>';
+}
 ?>
