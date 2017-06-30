@@ -21,7 +21,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>まる自動車販売店</title>
 </head>
 <body>
 
@@ -36,7 +36,7 @@ $password='';
 $dbh=new PDO($dsn,$user,$password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-$sql='SELECT code,name,price,type,price2,distance FROM mst_product WHERE 1';
+$sql='SELECT code,name,price,maker,price2,distance FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -55,7 +55,7 @@ require_once('../common/common.php');
 
 キーワードを選んでください。<br />
 <form method="post"action="">
-種類
+メーカー
 <?php pulldown_type(); ?>
 価格
 <?php pulldown_price(); ?>
@@ -78,23 +78,23 @@ if($keyword!==''){
     print '<br />';
 }
 //固定キーワード
-$type='';
+$maker='';
 $price='';
 $distance='';
-if(isset($_POST['type'])){
-   $type=$_POST['type'];
+if(isset($_POST['maker'])){
+   $maker=$_POST['maker'];
    $price=$_POST['price'];
    $distance=$_POST['distance'];
 }
-if($type!==''){
-    print $type.' '.$price.','.$distance.'に一致する商品';
+if($maker!==''){
+    print $maker.' '.$price.','.$distance.'に一致する商品';
     print '<br />';
 }
 
 while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
-            $type2=$rec['type'];
+            $maker2=$rec['maker'];
             $price2=$rec['price2'];
             $distance2=$rec['distance'];
 	if($rec==false)
@@ -104,13 +104,13 @@ while(true)
         
             $disp=0;
         //キーワードが空、または、キーワードが含まれるとき表示
-        if(($keyword==='')&&($type==='')){
+        if(($keyword==='')&&($maker==='')){
             $disp=1;
         }
-        else if(($type==='')&&(strpos($rec['name'],$keyword)!==false)){
+        else if(($maker==='')&&(strpos($rec['name'],$keyword)!==false)){
             $disp=1;
         }
-        else if(($keyword==='')&&((strpos($type2,$type)!==false)&&(strpos($price2,$price)!==false)&&(strpos($distance2,$distance)!==false))){
+        else if(($keyword==='')&&((strpos($maker2,$maker)!==false)&&(strpos($price2,$price)!==false)&&(strpos($distance2,$distance)!==false))){
             $disp=1;
         }
             
