@@ -72,6 +72,9 @@ $dbh=null;
 
 $csv='注文コード,注文日時,会員番号,お名前,メール,郵便番号,住所,TEL,商品コード,商品名,価格,数量';
 $csv.="\n";
+
+$uriage=0;
+
 while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
@@ -103,9 +106,13 @@ while(true)
 	$csv.=',';
 	$csv.=$rec['quantity'];
 	$csv.="\n";
+        $uriage=$uriage+$rec['quantity']*$rec['price'];
 }
 
-print nl2br($csv);
+//print nl2br($csv);
+print $year.'年'.$month.'月'.$day.'日の売上 ';
+print '<br />';
+print $uriage.'円';
 
 }
 catch (Exception $e)
