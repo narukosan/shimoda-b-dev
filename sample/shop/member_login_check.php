@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ろくまる農園</title>
+</head>
+<body>
 <?php
 
 try
@@ -27,7 +34,6 @@ $dbName = $_SERVER['MYSQL_DB'];
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
-
 
 $sql='SELECT code,name FROM dat_member WHERE email=? AND password=?';
 $stmt=$dbh->prepare($sql);
@@ -62,3 +68,6 @@ catch(Exception $e)
 }
 
 ?>
+
+</body>
+</html>

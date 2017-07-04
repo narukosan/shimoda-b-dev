@@ -48,7 +48,7 @@ $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
 
-$sql='SELECT name,price,gazou FROM mst_product WHERE code=?';
+$sql='SELECT name,price,gazou,maker,color,distance,stock FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
@@ -56,6 +56,10 @@ $stmt->execute($data);
 $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 $pro_name=$rec['name'];
 $pro_price=$rec['price'];
+$pro_maker=$rec['maker'];
+$pro_color=$rec['color'];
+$pro_distance=$rec['distance'];
+$pro_stock=$rec['stock'];
 $pro_gazou_name_old=$rec['gazou'];
 
 $dbh=null;
@@ -91,6 +95,14 @@ catch(Exception $e)
 <input type="text" name="name" style="width:200px" value="<?php print $pro_name; ?>"><br />
 価格<br />
 <input type="text" name="price" style="width:50px" value="<?php print $pro_price; ?>">円<br />
+メーカー<br />
+<input type="text" name="maker" style="width:50px" value="<?php print $pro_maker; ?>">製<br />
+色<br />
+<input type="text" name="color" style="width:50px" value="<?php print $pro_color; ?>">色<br />
+距離<br />
+<input type="text" name="distance" style="width:50px" value="<?php print $pro_distance; ?>">ｋｍ<br />
+在庫<br />
+<input type="text" name="stock" style="width:50px" value="<?php print $pro_stock; ?>">台<br />
 <br />
 <?php print $disp_gazou; ?>
 <br />

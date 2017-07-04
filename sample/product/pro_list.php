@@ -45,8 +45,7 @@ $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
-
-$sql='SELECT code,name,price FROM mst_product WHERE 1';
+$sql='SELECT code,name,price,maker,color,distance,stock FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
@@ -65,6 +64,11 @@ while(true)
 	print '<input type="radio" name="procode" value="'.$rec['code']. '">';
 	print $rec['name'].'---';
 	print $rec['price'].'円';
+        print $rec['maker'].'製';
+        print $rec['color'].'色';
+        print $rec['distance'].'ｋｍ';
+        print $rec['stock'].'台';
+        
 	print '<br />';
 }
 print '<input type="submit" name="disp" value="参照">';

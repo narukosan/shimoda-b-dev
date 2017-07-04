@@ -50,7 +50,7 @@ $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
 
-$sql='SELECT name,price,gazou FROM mst_product WHERE code=?';
+$sql='SELECT name,price,gazou,maker,color,distance FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_code;
 $stmt->execute($data);
@@ -59,6 +59,9 @@ $rec=$stmt->fetch(PDO::FETCH_ASSOC);
 $pro_name=$rec['name'];
 $pro_price=$rec['price'];
 $pro_gazou_name=$rec['gazou'];
+$pro_maker=$rec['maker'];
+$pro_color=$rec['color'];
+$pro_distance=$rec['distance'];
 
 $dbh=null;
 
@@ -91,6 +94,15 @@ catch(Exception $e)
 <br />
 価格<br />
 <?php print $pro_price; ?>円
+<br />
+メーカー<br />
+<?php print $pro_maker; ?>製
+<br />
+色<br />
+<?php print $pro_color; ?>色
+<br />
+走行距離<br />
+<?php print $pro_distance; ?>km
 <br />
 <?php print $disp_gazou; ?>
 <br />

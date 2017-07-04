@@ -33,6 +33,9 @@ require_once('../common/common.php');
 $post=sanitize($_POST);
 $pro_name=$post['name'];
 $pro_price=$post['price'];
+$pro_maker=$post['maker'];
+$pro_color=$post['color'];
+$pro_distance=$post['distance'];
 $pro_gazou_name=$post['gazou_name'];
 
 require_once('../common/common.php');
@@ -53,11 +56,15 @@ $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
 
-$sql='INSERT INTO mst_product(name,price,gazou) VALUES (?,?,?)';
+$sql='INSERT INTO mst_product(name,price,maker,color,distance,gazou,stock) VALUES (?,?,?,?,?,?,?)';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;
 $data[]=$pro_price;
+$data[]=$pro_maker;
+$data[]=$pro_color;
+$data[]=$pro_distance;
 $data[]=$pro_gazou_name;
+$data[]=1;
 $stmt->execute($data);
 
 $dbh=null;

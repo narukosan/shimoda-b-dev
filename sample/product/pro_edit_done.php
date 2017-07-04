@@ -34,6 +34,10 @@ $post=sanitize($_POST);
 $pro_code=$post['code'];
 $pro_name=$post['name'];
 $pro_price=$post['price'];
+$pro_maker=$post['maker'];
+$pro_color=$post['color'];
+$pro_distance=$post['distance'];
+$pro_stock=$post['stock'];
 $pro_gazou_name_old=$_POST['gazou_name_old'];
 $pro_gazou_name=$_POST['gazou_name'];
 
@@ -55,10 +59,14 @@ $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
 
-$sql='UPDATE mst_product SET name=?,price=?,gazou=? WHERE code=?';
+$sql='UPDATE mst_product SET name=?,price=?,maker=?,color=?,distance=?,stock=?,gazou=? WHERE code=?';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;
 $data[]=$pro_price;
+$data[]=$pro_maker;
+$data[]=$pro_color;
+$data[]=$pro_distance;
+$data[]=$pro_stock;
 $data[]=$pro_gazou_name;
 $data[]=$pro_code;
 $stmt->execute($data);
