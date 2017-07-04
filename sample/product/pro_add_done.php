@@ -55,6 +55,7 @@ $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
+
 $sql='INSERT INTO mst_product(name,price,maker,color,distance,gazou,stock) VALUES (?,?,?,?,?,?,?)';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;

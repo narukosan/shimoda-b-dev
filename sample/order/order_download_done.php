@@ -49,6 +49,7 @@ $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
+
 $sql='
 SELECT
 	dat_sales.code,
