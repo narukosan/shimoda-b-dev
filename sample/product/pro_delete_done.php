@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title> ろくまる農園</title>
+<title> まる自動車販売店</title>
 </head>
 <body>
 
@@ -32,6 +32,8 @@ $pro_code=$_POST['code'];
 $pro_gazou_name=$_POST['gazou_name'];
 
 require_once('../common/common.php');
+
+
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -47,7 +49,6 @@ $dbName = $_SERVER['MYSQL_DB'];
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
-
 
 $sql='DELETE FROM mst_product WHERE code=?';
 $stmt=$dbh->prepare($sql);

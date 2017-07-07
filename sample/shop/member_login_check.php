@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>ろくまる農園</title>
-</head>
-<body>
 <?php
 
 try
@@ -19,6 +12,8 @@ $member_pass=$post['pass'];
 $member_pass=md5($member_pass);
 
 require_once('../common/common.php');
+
+
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -68,6 +63,3 @@ catch(Exception $e)
 }
 
 ?>
-
-</body>
-</html>

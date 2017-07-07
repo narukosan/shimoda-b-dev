@@ -12,7 +12,7 @@ session_destroy();
 <html>
 <head>
 <meta charset="UTF-8">
-<title>まる自動車販売店</title>
+<title>ろくまる農園</title>
 </head>
 <body>
 

@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title> まる自動車販売店</title>
+<title> ろくまる農園</title>
 </head>
 <body>
 
@@ -31,6 +31,8 @@ try
 $staff_code=$_POST['code'];
 
 require_once('../common/common.php');
+
+
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -46,7 +48,6 @@ $dbName = $_SERVER['MYSQL_DB'];
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
-
 
 $sql='DELETE FROM mst_staff WHERE code=?';
 $stmt=$dbh->prepare($sql);

@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title> ろくまる農園</title>
+<title> まる自動車販売店</title>
 </head>
 <body>
 
@@ -33,6 +33,12 @@ $month=$_POST['month'];
 $day=$_POST['day'];
 
 require_once('../common/common.php');
+
+
+if (DEBUG) {
+require_once('../common/common.php');
+
+
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -48,7 +54,15 @@ $dbName = $_SERVER['MYSQL_DB'];
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
-
+}
+else{
+$dbServer = '127.0.0.1';
+$dbUser = $_SERVER['MYSQL_USER'];
+$dbPass = $_SERVER['MYSQL_PASSWORD'];
+$dbName = $_SERVER['MYSQL_DB'];
+$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
+$dbh = new PDO($dsn, $dbUser, $dbPass);
+}
 
 $sql='
 SELECT
@@ -121,7 +135,7 @@ while(true)
         $uriage=$uriage+$rec['quantity']*$rec['price'];
 }
 
-//print nl2br($csv);
+print nl2br($csv);
 print $year.'年'.$month.'月'.$day.'日の売上 ';
 print '<br />';
 print $uriage.'円';

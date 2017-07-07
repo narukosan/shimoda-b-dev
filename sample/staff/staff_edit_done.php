@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title> まる自動車販売店</title>
+<title> ろくまる農園</title>
 </head>
 <body>
 
@@ -36,6 +36,8 @@ $staff_name=$post['name'];
 $staff_pass=$post['pass'];
 
 require_once('../common/common.php');
+
+
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -51,7 +53,6 @@ $dbName = $_SERVER['MYSQL_DB'];
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
-
 
 $sql='UPDATE mst_staff SET name=?,password=? WHERE code=?';
 $stmt=$dbh->prepare($sql);
