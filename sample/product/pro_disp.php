@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>まる自動車販売店</title>
 </head>
 <body>
 
@@ -91,6 +91,15 @@ catch(Exception $e)
 <br />
 価格<br />
 <?php print $pro_price; ?>円
+<br />
+メーカー<br />
+<?php print $pro_maker; ?>製
+<br />
+色<br />
+<?php print $pro_color; ?>
+<br />
+距離<br />
+<?php print $pro_distance; ?>km
 <br />
 <?php print $disp_gazou; ?>
 <br />

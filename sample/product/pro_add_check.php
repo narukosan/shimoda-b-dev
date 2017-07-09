@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>まる自動車販売店</title>
 </head>
 <body>
 
@@ -57,6 +57,46 @@ else
 	print '円<br />';
 }
 
+
+
+if($pro_maker=='')
+{
+	print 'メーカーが入力されていません。<br />';
+}
+else
+{
+	print 'メーカー:';
+	print $pro_maker;
+	print '<br />';
+}
+
+
+
+if($pro_color=='')
+{
+	print '色が入力されていません。<br />';
+}
+else
+{
+	print '色:';
+	print $pro_color;
+	print '<br />';
+}
+
+
+if(preg_match('/^[0-9]+$/',$pro_distance)==0)
+{
+	print '距離をきちんと入力してください。<br />';
+}
+else
+{
+	print '距離:';
+	print $pro_distance;
+	print 'km<br />';
+}
+
+
+
 if($pro_gazou['size']>0)
 {
 	if($pro_gazou['size']>1000000)
@@ -71,7 +111,7 @@ if($pro_gazou['size']>0)
 	}
 }
 
-if($pro_name=='' || preg_match('/^[0-9]+$/',$pro_price)==0 || $pro_gazou['size']>1000000)
+if($pro_name=='' || preg_match('/^[0-9]+$/',$pro_price)==0 || $pro_maker=='' || $pro_color=='' || preg_match('/^[0-9]+$/',$pro_distance)==0 || $pro_gazou['size']>1000000)
 {
 	print '<form>';
 	print '<input type="button" onclick="history.back()" value="戻る">';

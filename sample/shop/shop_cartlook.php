@@ -21,7 +21,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>まる自動車販売店</title>
 </head>
 <body>
 
@@ -101,7 +101,7 @@ catch(Exception $e)
 <td>色</td>
 <td>削除</td>
 </tr>
-<form method="post" action="kazu_change.php">
+<form method="post" action="clear_cart.php">
 <?php for($i=0;$i<$max;$i++)
 	{
 ?>
@@ -119,7 +119,7 @@ catch(Exception $e)
 ?>
 </table>
 <input type="hidden" name="max" value="<?php print $max; ?>">
-<input type="submit" value="数量変更"><br />
+<input type="submit" value="カートを空にする"><br />
 <input type="button" onclick="history.back()" value="戻る">
 </form>
 <br />

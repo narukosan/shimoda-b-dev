@@ -19,7 +19,7 @@ else
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ろくまる農園</title>
+<title>まる自動車販売店</title>
 </head>
 <body>
 
@@ -38,6 +38,44 @@ $pro_color=$post['color'];
 $pro_distance=$post['distance'];
 $pro_gazou_name=$post['gazou_name'];
 
+
+ if($pro_price<=300000)
+ {$pro_price2='～30万円';
+ }elseif($pro_price<=500000){
+$pro_price2='～50万円';
+}elseif($pro_price<=1000000){
+$pro_price2='～100万円';
+}elseif($pro_price<=2000000){
+$pro_price2='～200万円';
+}elseif($pro_price<=3000000){
+$pro_price2='～300万円';
+}elseif($pro_price<=5000000){
+$pro_price2='～500万円';
+}else{
+$pro_price2='500万円以上';
+}
+    
+   
+
+if($pro_distance<=10000)
+ {$pro_distance2='1万km以下';
+ }elseif($pro_distance<=30000)
+ {$pro_distance2='1～3万km';
+ }elseif($pro_distance<=50000)
+ {$pro_distance2='3～5万km';
+ }elseif($pro_distance<=100000)
+ {$pro_distance2='5～10万km';
+ }elseif($pro_distance<=150000)
+ {$pro_distance2='10～15万km';
+ }else{
+$pro_distance2='15万km以上';
+ }
+
+
+
+
+
+
 require_once('../common/common.php');
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -55,7 +93,7 @@ $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
-$sql='INSERT INTO mst_product(name,price,maker,color,distance,gazou,stock) VALUES (?,?,?,?,?,?,?)';
+$sql='INSERT INTO mst_product(name,price,maker,color,distance,gazou,stock,price2,distance2) VALUES (?,?,?,?,?,?,?,?,?)';
 $stmt=$dbh->prepare($sql);
 $data[]=$pro_name;
 $data[]=$pro_price;
@@ -64,6 +102,8 @@ $data[]=$pro_color;
 $data[]=$pro_distance;
 $data[]=$pro_gazou_name;
 $data[]=1;
+$data[]=$pro_price2;
+$data[]=$pro_distance2;
 $stmt->execute($data);
 
 $dbh=null;

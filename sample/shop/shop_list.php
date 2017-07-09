@@ -105,7 +105,7 @@ if($maker!==''){
 while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
-            $maker2=$rec['maker'];
+            $maker=$rec['maker'];
             $price2=$rec['price2'];
             $distance2=$rec['distance'];
 	if($rec==false)
@@ -125,93 +125,14 @@ while(true)
             $disp=1;
         }
             
-    if($disp===1){
-	print '<a href="shop_product.php?procode='.$rec['code'].'">';
-	print $rec['name'].'---';
-	print $rec['price'].'円';
-	print '</a>';
-	print '<br />';
-    }
-}
-
-
-
-
-require_once('../common/common.php');
-?>
-<form method="post" action="">
-キーワード<br />
-<input type="text" name="keyword"><br />
-<input type="submit" value="検索">
-</form> 
-<br />
-
-キーワードを選んでください。<br />
-<form method="post"action="">
-メーカー
-<?php pulldown_type(); ?>
-価格
-<?php pulldown_price(); ?>
-走行距離
-<?php pulldown_distance(); ?>
-<br />
-<input type="submit" value="絞り込み">
-</form>
-<br />
-
-<?php
-
-//フリーキーワード
-$keyword='';
-if(isset($_POST['keyword'])){
-    $keyword=$_POST['keyword'];
-}
-if($keyword!==''){
-    print $keyword.'が含まれる';
-    print '<br />';
-}
-//固定キーワード
-$maker='';
-$price='';
-$distance='';
-if(isset($_POST['maker'])){
-   $maker=$_POST['maker'];
-   $price=$_POST['price'];
-   $distance=$_POST['distance'];
-}
-if($maker!==''){
-    print $maker.' '.$price.','.$distance.'に一致する商品';
-    print '<br />';
-}
-
-while(true)
+    while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
-            $maker2=$rec['maker'];
-            $price2=$rec['price2'];
-            $distance2=$rec['distance'];
 	if($rec==false)
 	{
 		break;
 	}
-
-        
-            $disp=0;
-        //キーワードが空、または、キーワードが含まれるとき表示
-        if(($keyword==='')&&($maker==='')){
-            $disp=1;
-        }
-        else if(($maker==='')&&(strpos($rec['name'],$keyword)!==false)){
-            $disp=1;
-        }
-        else if(($keyword==='')&&((strpos($maker2,$maker)!==false)&&(strpos($price2,$price)!==false)&&(strpos($distance2,$distance)!==false))){
-            $disp=1;
-        }
-            
-    if($disp===1){
-
-        if($rec['stock']==1){
-
+        if($rec['stock']!=0){
 	print '<a href="shop_product.php?procode='.$rec['code'].'">';
 	print $rec['name'].'---';
 	print $rec['price'].'円';
@@ -220,12 +141,10 @@ while(true)
         print $rec['distance'].'ｋｍ';
 	print '</a>';
 	print '<br />';
-
-    }
         }
-
 }
 
+}
     
 
 print '<br />';
