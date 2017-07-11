@@ -1,12 +1,8 @@
 <?php
-
-
-//DEBUG処理の切り替え     本番運用時にはFALSEに変更すること
-define('DEBUG', TRUE);  //デバッグ時
-//define('DEBUG', FALSE); //本番運用時
-
+//DEBUG処理の切り替え　　本番運用時にはFALSEに変更すること
+define('DEBUG',TRUE) //デバッグ時
+//define('DEBUG',FALSE);本番運用時        
 ?>
-
 <?php
 
 function gengo($seireki)
@@ -113,13 +109,11 @@ function pulldown_type()
 {
 	print '<select name="type">';
 	print '<option value="トヨタ">トヨタ</option>';
-
 	print '<option value="日産">日産</option>';
 	print '<option value="ホンダ">ホンダ</option>';
 	print '<option value="三菱">三菱</option>';
 	print '<option value="マツダ">マツダ</option>';
 	print '<option value="スバル">スバル</option>';
-
 	print '</select>';
 }
 function pulldown_price()

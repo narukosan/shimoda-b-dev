@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>まる自動車販売店</title>
+</head>
+<body>
+
 <?php
 
 try
@@ -10,9 +18,6 @@ $staff_code=$post['code'];
 $staff_pass=$post['pass'];
 
 $staff_pass=md5($staff_pass);
-
-require_once('../common/common.php');
-
 
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -63,3 +68,5 @@ catch(Exception $e)
 }
 
 ?>
+</body>
+</html>

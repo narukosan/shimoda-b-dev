@@ -25,10 +25,10 @@ else
 
 <?php
 
+require_once('../common/common.php');
+
 try
 {
-
-require_once('../common/common.php');
 
 $post=sanitize($_POST);
 $pro_name=$post['name'];
@@ -38,45 +38,36 @@ $pro_color=$post['color'];
 $pro_distance=$post['distance'];
 $pro_gazou_name=$post['gazou_name'];
 
-
- if($pro_price<=300000)
- {$pro_price2='～30万円';
- }elseif($pro_price<=500000){
-$pro_price2='～50万円';
+ if($pro_price<=300000){
+     $pro_price2='～30万円';
+}else if($pro_price<=500000){
+    $pro_price2='～50万円';
 }elseif($pro_price<=1000000){
-$pro_price2='～100万円';
+    $pro_price2='～100万円';
 }elseif($pro_price<=2000000){
-$pro_price2='～200万円';
+    $pro_price2='～200万円';
 }elseif($pro_price<=3000000){
-$pro_price2='～300万円';
+    $pro_price2='～300万円';
 }elseif($pro_price<=5000000){
-$pro_price2='～500万円';
+    $pro_price2='～500万円';
 }else{
-$pro_price2='500万円以上';
+    $pro_price2='500万円以上';
 }
-    
-   
 
-if($pro_distance<=10000)
- {$pro_distance2='1万km以下';
- }elseif($pro_distance<=30000)
- {$pro_distance2='1～3万km';
- }elseif($pro_distance<=50000)
- {$pro_distance2='3～5万km';
- }elseif($pro_distance<=100000)
- {$pro_distance2='5～10万km';
- }elseif($pro_distance<=150000)
- {$pro_distance2='10～15万km';
+if($pro_distance<=10000){
+    $pro_distance2='1万km以下';
+ }elseif($pro_distance<=30000){
+     $pro_distance2='1～3万km';
+ }elseif($pro_distance<=50000){
+     $pro_distance2='3～5万km';
+ }elseif($pro_distance<=100000){
+     $pro_distance2='5～10万km';
+ }elseif($pro_distance<=150000){
+     $pro_distance2='10～15万km';
  }else{
-$pro_distance2='15万km以上';
+    $pro_distance2='15万km以上';
  }
 
-
-
-
-
-
-require_once('../common/common.php');
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';

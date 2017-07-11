@@ -27,10 +27,11 @@ else
 
 <?php
 
+require_once('../common/common.php');
+
 try
 {
-
-require_once('../common/common.php');
+    
 if (DEBUG) {
 $dsn='mysql:dbname=shop;host=localhost;charset=utf8';
 $user='root';
@@ -48,14 +49,14 @@ $dbh = new PDO($dsn, $dbUser, $dbPass);
 }
 
 
-$sql='SELECT code,name,price,maker,color,distance,stock,price2 FROM mst_product WHERE 1';
+$sql='SELECT code,name,price,maker,color,distance,stock,price2,distance2 FROM mst_product WHERE 1';
 $stmt=$dbh->prepare($sql);
 $stmt->execute();
 
 $dbh=null;
 
 print '商品一覧<br /><br />';
-require_once('../common/common.php');
+
 ?>
 <form method="post" action="">
 キーワード<br />
@@ -92,8 +93,8 @@ if($keyword!==''){
 $maker='';
 $price='';
 $distance='';
-if(isset($_POST['maker'])){
-   $maker=$_POST['maker'];
+if(isset($_POST['type'])){
+   $maker=$_POST['type'];
    $price=$_POST['price'];
    $distance=$_POST['distance'];
 }
@@ -105,15 +106,14 @@ if($maker!==''){
 while(true)
 {
 	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
-            $maker=$rec['maker'];
-            $price2=$rec['price2'];
-            $distance2=$rec['distance'];
+        $maker2=$rec['maker'];
+        $price2=$rec['price2'];
+        $distance2=$rec['distance2'];
 	if($rec==false)
 	{
 		break;
 	}
-        
-            $disp=0;
+        $disp=0;
         //キーワードが空、または、キーワードが含まれるとき表示
         if(($keyword==='')&&($maker==='')){
             $disp=1;
@@ -124,26 +124,17 @@ while(true)
         else if(($keyword==='')&&((strpos($maker2,$maker)!==false)&&(strpos($price2,$price)!==false)&&(strpos($distance2,$distance)!==false))){
             $disp=1;
         }
-            
-    while(true)
-{
-	$rec=$stmt->fetch(PDO::FETCH_ASSOC);
-	if($rec==false)
-	{
-		break;
-	}
-        if($rec['stock']!=0){
+
+        if($disp===1){
 	print '<a href="shop_product.php?procode='.$rec['code'].'">';
 	print $rec['name'].'---';
-	print $rec['price'].'円';
-        print $rec['maker'].'製';
-        print $rec['color'].'色';
-        print $rec['distance'].'ｋｍ';
+	print $rec['price'].'円,';
+        print $rec['maker'].'製,';
+        print $rec['color'].'色,';
+        print $rec['distance'].'km';
 	print '</a>';
 	print '<br />';
         }
-}
-
 }
     
 

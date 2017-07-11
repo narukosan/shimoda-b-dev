@@ -63,10 +63,10 @@ while(true)
 	}
 	print '<input type="radio" name="procode" value="'.$rec['code']. '">';
 	print $rec['name'].'---';
-	print $rec['price'].'円';
-        print $rec['maker'].'製';
-        print $rec['color'].'色';
-        print $rec['distance'].'ｋｍ';
+	print $rec['price'].'円,';
+        print $rec['maker'].'製,';
+        print $rec['color'].'色,';
+        print $rec['distance'].'km,';
         print $rec['stock'].'台';
         
 	print '<br />';
