@@ -58,7 +58,8 @@ else
 	$_SESSION['staff_code']=$staff_code;
 	$_SESSION['staff_name']=$rec['name'];
 	header('Location:staff_top.php');
-	exit();
+        ob_end_clean();
+        exit();
 }
 
 }
